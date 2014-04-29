@@ -37,7 +37,8 @@ namespace MX
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
+            // TODO: Add event handler implementation here.
 
+        }
     }
 }
