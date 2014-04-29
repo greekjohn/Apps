@@ -10,14 +10,12 @@ using System.Windows.Shapes;
 
 namespace TestDemo
 {
-	public partial class Animation : UserControl
+	public partial class VSM : UserControl
 	{
-		public Animation()
+		public VSM()
 		{
 			// Required to initialize variables
 			InitializeComponent();
-
-         //   this.Rotate.Begin();
 		}
-    }
+	}
 }
