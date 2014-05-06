@@ -130,11 +130,23 @@
                 					<VisualTransition From="Unchecked" GeneratedDuration="0" To="Checked"/>
                 					<VisualTransition From="Checked" GeneratedDuration="0" To="Unchecked"/>
                 				</VisualStateGroup.Transitions>
-                				<VisualState x:Name="Checked"/>
+                				<VisualState x:Name="Checked">
+                					<Storyboard>
+                						<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse">
+                							<EasingThicknessKeyFrame KeyTime="0" Value="20,0,0,0"/>
+                							<EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="0,0,20,0"/>
+                						</ThicknessAnimationUsingKeyFrames>
+                					</Storyboard>
+                				</VisualState>
                 				<VisualState x:Name="Unchecked">
                 					<Storyboard>
+                						<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse">
+                							<EasingThicknessKeyFrame KeyTime="0" Value="0,0,20,0"/>
+                							<EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="20,0,0,0"/>
+                						</ThicknessAnimationUsingKeyFrames>
                 						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="ellipse">
-                							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static HorizontalAlignment.Left}"/>
+                							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static HorizontalAlignment.Stretch}"/>
+                							<DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static HorizontalAlignment.Right}"/>
                 						</ObjectAnimationUsingKeyFrames>
                 					</Storyboard>
                 				</VisualState>
@@ -149,7 +161,7 @@
                 			<Ellipse Fill="{TemplateBinding Background}" Height="20" Stroke="Black" VerticalAlignment="Top" Margin="0,0,1,0" Width="20" HorizontalAlignment="Right" StrokeThickness="0"/>
                 			<TextBlock Margin="5,0,0,0" TextWrapping="Wrap" Text="开" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 			<TextBlock Margin="0,0,5,0" TextWrapping="Wrap" Text="关" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                			<Ellipse x:Name="ellipse" Fill="#FF1B8DA2" Stroke="Black" StrokeThickness="0" Width="20" Height="20" HorizontalAlignment="Right"/>
+                			<Ellipse x:Name="ellipse" Fill="#FF1B8DA2" Stroke="Black" StrokeThickness="0" Width="20" Height="20"/>
                 		</Grid>
                 	</Border>
                     <ControlTemplate.Triggers>

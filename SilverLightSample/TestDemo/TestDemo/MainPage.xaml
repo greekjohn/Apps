@@ -6,15 +6,22 @@
 	x:Class="TestDemo.MainPage"
 	Width="640" Height="480">
 
-    <StackPanel x:Name="LayoutRoot" Background="White">
-		<local:Animation x:Name="animation" HorizontalAlignment="Left">
-			<i:Interaction.Triggers>
-				<i:EventTrigger >
-					<i:InvokeCommandAction Command="{Binding RotatCommand}"/>
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
-		</local:Animation>
-		<local:VSM HorizontalAlignment="Left" Margin="8,0,0,0"/>
-		<local:Controls HorizontalAlignment="Left" Height="100" Width="100"/>
-	</StackPanel>
+    <Grid x:Name="LayoutRoot" Background="White">
+		<Grid Margin="0" d:LayoutOverrides="Height">
+			<local:Animation x:Name="animation" Margin="0,0,58,0" VerticalAlignment="Top" d:LayoutOverrides="Width">
+				<i:Interaction.Triggers>
+					<i:EventTrigger >
+						<i:InvokeCommandAction Command="{Binding RotatCommand}"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</local:Animation>
+			<local:VSM Margin="8,100,0,100" d:LayoutOverrides="Width, Height"/>
+			<local:Controls Height="100" Margin="0,0,58,0" VerticalAlignment="Bottom"/>
+		</Grid>
+		<Viewbox Margin="0">
+			<Grid Height="480" Width="640">
+				<local:Maps Margin="0" d:LayoutOverrides="Width, Height"/>
+			</Grid>
+		</Viewbox>
+	</Grid>
 </UserControl>
