@@ -3,16 +3,68 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects"
 	mc:Ignorable="d"
 	x:Class="TestDemo.Controls"
 	d:DesignWidth="640" d:DesignHeight="480">
   <UserControl.Resources>
+  	<ControlTemplate x:Key="ButtonControlTemplate1" TargetType="Button">
+  		<Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Margin}">
+  			<VisualStateManager.VisualStateGroups>
+  				<VisualStateGroup x:Name="FocusStates">
+  					<VisualState x:Name="Focused">
+  						<Storyboard>
+  							<DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border" d:IsOptimized="True"/>
+  							<DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="border" d:IsOptimized="True"/>
+  						</Storyboard>
+  					</VisualState>
+  					<VisualState x:Name="Unfocused">
+  						<Storyboard>
+  							<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border" d:IsOptimized="True"/>
+  							<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="border" d:IsOptimized="True"/>
+  						</Storyboard>
+  					</VisualState>
+  				</VisualStateGroup>
+  				<VisualStateGroup x:Name="CommonStates">
+  					<VisualStateGroup.Transitions>
+  						<VisualTransition GeneratedDuration="0"/>
+  					</VisualStateGroup.Transitions>
+  					<VisualState x:Name="Normal"/>
+  					<VisualState x:Name="MouseOver">
+  						<Storyboard>
+  							<ColorAnimation Duration="0" To="#FF57B8E2" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border" d:IsOptimized="True"/>
+  						</Storyboard>
+  					</VisualState>
+  					<VisualState x:Name="Pressed">
+  						<Storyboard>
+  							<ColorAnimation Duration="0" To="#FF2A96C4" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border" d:IsOptimized="True"/>
+  						</Storyboard>
+  					</VisualState>
+  					<VisualState x:Name="Disabled"/>
+  				</VisualStateGroup>
+  			</VisualStateManager.VisualStateGroups>
+  			<VisualStateManager.CustomVisualStateManager>
+  				<ei:ExtendedVisualStateManager/>
+  			</VisualStateManager.CustomVisualStateManager>
+  			<Border x:Name="border" BorderThickness="1" Background="#FF7D7D7D" RenderTransformOrigin="0.5,0.5">
+  				<Border.RenderTransform>
+  					<CompositeTransform/>
+  				</Border.RenderTransform>
+  				<TextBlock TextWrapping="Wrap" Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  			</Border>
+  		</Grid>
+  	</ControlTemplate>
   	
   </UserControl.Resources>
     <Border Background="#FFB2B2B2" CornerRadius="5">
 
         <Grid x:Name="LayoutRoot">
-            <CheckBox x:Name="CheckBox" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Top" Template="{StaticResource ButtonControlTemplate1}" Background="#FF7D7D7D" Margin="0"/>
+            <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
+            	<RadioButton Content="111111" GroupName="one"/>
+            	<RadioButton Content="222222" GroupName="one"/>
+            	<RadioButton Content="333333" GroupName="one"/>
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>
