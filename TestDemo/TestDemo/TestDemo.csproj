@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A150A13-C35E-4DAD-B08B-2A2906B98FC5}</ProjectGuid>
+    <ProjectGuid>{CDD788F6-9029-49E9-9995-62206C6B51DB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MEFDemo</RootNamespace>
-    <AssemblyName>MEFDemo</AssemblyName>
+    <RootNamespace>TestDemo</RootNamespace>
+    <AssemblyName>TestDemo</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,7 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compare.cs" />
+    <Compile Include="Encrypt.cs" />
+    <Compile Include="HttpBlogs.cs" />
+    <Compile Include="Ip.cs" />
+    <Compile Include="Lambda.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

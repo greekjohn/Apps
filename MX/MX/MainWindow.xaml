@@ -85,7 +85,7 @@
 				</StackPanel>
 			</Grid>
 		</Border>
-		<Border BorderBrush="Black" BorderThickness="1">
+		<Border BorderBrush="Black" ">
 			<local:SilderButton/>
 		</Border>
 	</Grid>

@@ -7,7 +7,7 @@
 	Width="640" Height="480">
 
     <Grid x:Name="LayoutRoot" Background="White">
-		<Grid Margin="0" d:LayoutOverrides="Height">
+		<Grid Margin="0" d:LayoutOverrides="Height" Visibility="Collapsed">
 			<local:Animation x:Name="animation" Margin="0,0,58,0" VerticalAlignment="Top" d:LayoutOverrides="Width">
 				<i:Interaction.Triggers>
 					<i:EventTrigger >
@@ -18,7 +18,7 @@
 			<local:VSM Margin="8,100,0,100" d:LayoutOverrides="Width, Height"/>
 			<local:Controls Height="100" Margin="0,0,58,0" VerticalAlignment="Bottom"/>
 		</Grid>
-		<Viewbox Margin="0">
+		<Viewbox Margin="0" Visibility="Collapsed">
 			<Grid Height="480" Width="640">
 				<local:Maps Margin="0" d:LayoutOverrides="Width, Height"/>
 			</Grid>
